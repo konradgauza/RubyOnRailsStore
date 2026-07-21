@@ -21,5 +21,7 @@ Rails.application.routes.draw do
     #
     # get "/blog/:title", to: "blog#show"
 
-    resources :products
+    resources :products do
+        resources :subscribers, only: [ :create ]
+    end
 end
