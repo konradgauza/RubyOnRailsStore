@@ -1,8 +1,7 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-one:
-  email: MyString
-  product: one
+david:
+  product: tshirt
+  email: david@example.org
 
-two:
-  email: MyString
-  product: two
+chris:
+  product: tshirt
+  email: chris@example.org
