@@ -24,19 +24,22 @@
   </head>
 
   <body>
-      <nav>
-        <%= link_to "Home", root_path %>
+    <div class="notice"><%= flash[:notice] %></div>
+    <div class="alert"><%= flash[:alert] %></div>
 
-        <%= button_to "Log out",
-                      session_path,
-                      method: :delete if authenticated? %>
-      </nav>
+    <nav class="navbar">
+      <%= link_to "Home", root_path %>
+      <% if authenticated? %>
+        <%= link_to "Settings", settings_root_path %>
+        <%= button_to "Log out", session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Sign Up", sign_up_path %>
+        <%= link_to "Login", new_session_path %>
+      <% end %>
+    </nav>
 
-      <main>
-        <%= yield %>
-      </main>
-
-      <div class="notice"><%= flash[:notice] %></div>
-      <div class="alert"><%= flash[:alert] %></div>
+    <main>
+      <%= content_for?(:content) ? yield(:content) : yield %>
+    </main>
   </body>
 </html>

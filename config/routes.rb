@@ -3,6 +3,13 @@ Rails.application.routes.draw do
   resources :passwords, param: :token
   resource :sign_up
 
+  namespace :settings do
+    resource :password, only: [ :show, :update ]
+    resource :profile, only: [ :show, :update ]
+
+    root to: redirect("/settings/profile")
+  end
+
   root "products#index"
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
