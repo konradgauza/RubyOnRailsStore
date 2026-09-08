@@ -16,6 +16,11 @@ Rails.application.routes.draw do
     resources :confirmations, param: :token, only: [ :show ]
   end
 
+  # Admins Only
+  namespace :store do
+    resources :users
+  end
+
   root "products#index"
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
