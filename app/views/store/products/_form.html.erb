@@ -1,4 +1,4 @@
-<%= form_with model: product do |form| %>
+<%= form_with model: [ :store, product ] do |form| %>
   <% if form.object.errors.any? %>
     <% form.object.errors.full_messages.each do |message| %>
       <p><%= message %></p>
