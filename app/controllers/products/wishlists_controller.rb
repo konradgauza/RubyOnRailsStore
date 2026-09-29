@@ -13,6 +13,10 @@ class Products::WishlistsController < ApplicationController
     end
 
     def set_wishlist
-      @wishlist = Current.user.wishlists.find(params[:wishlist_id])
+      if (id = params[:wishlist_id])
+        @wishlist = Current.user.wishlists.find(id)
+      else
+        @wishlist = Current.user.wishlists.create(name: "My Wishlist")
+      end
     end
 end
