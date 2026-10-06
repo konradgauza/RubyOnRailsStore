@@ -36,5 +36,7 @@ Rails.application.routes.draw do
   end
   resource :unsubscribe, only: [ :show ]
 
-  resources :wishlists
+  resources :wishlists do
+    resources :wishlist_products, only: [ :destroy ], module: :wishlists
+  end
 end
