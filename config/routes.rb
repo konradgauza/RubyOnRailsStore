@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   namespace :store do
     resources :products
     resources :users
+    resources :wishlists
 
     root to: redirect("/store/products")
   end
